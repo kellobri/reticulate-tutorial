@@ -24,12 +24,7 @@ use_virtualenv("reticulate", required = TRUE)
 py_config()
 # python: reticulate/bin/python
 
-os <- import("os")
-os$system("pip list")
 
-# Python Check
-# import os
-# os.system("pip list)
 
 #
 # Option 2: Set up virtualenv (internal) with reticulate
@@ -51,5 +46,34 @@ py_config()
 # version:        2.7.10 (default, Oct  6 2017, 22:29:07)
 
 
+#
+# Option 3: Conda
+#
 
+
+
+# Installing Python Modules ---------------------------- 
+
+#
+# Installing python modules into the Environment Option 1: with Reticulate
+#
+# In the RStudio console with reticulate package loaded:
+
+virtualenv_install("reticulate", "pyarrow")
+
+#
+# Installing python modules into the Environment Option 2: with pip (external)
+#
+# In the terminal with the virtualenv activated:
+# pip install python_module
+
+
+# Verify module installation:
+
+os <- import("os")
+os$system("pip list")
+
+# Python Check:
+# import os
+# os.system("pip list")
 
