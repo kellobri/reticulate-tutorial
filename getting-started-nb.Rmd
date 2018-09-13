@@ -1,0 +1,69 @@
+---
+title: "Reticulate Virtual Environment Startup"
+output: html_notebook
+---
+
+### Getting Started with virtualenv
+
+_virtualenv_ is a tool to create isolated Python environments. _virtualenv_ creates a folder which contains all the necessary executables to use the packages that a Python project would need. [Documentation Here](https://docs.python-guide.org/dev/virtualenvs/).
+
+I like creating python virtual environments to work do work in with reticulate. There are ways to create virtual environments directly from the reticulate package, but I prefer to create them in the terminal such that the directory and activation script is easily co-located with the R project directory I'm working in. This is purely a personal workflow preference. 
+
+**Create a virtualenv in the Terminal**
+
+1. Make sure you have python available: `python --version`
+2. Make sure you have pip available: `pip --version`
+3. Install virtualenv: `pip install virtualenv`
+4. Change into the project directory you want to use: `cd my_project_folder`
+5. Create a virtualenv: `virtualenv my_project`
+6. Activate the virtualenv: `source my_project/bin/activate`
+7. Use pip to install python packages (ex. install `requests`): `pip install requests`
+8. To exit the virtualenv: `deactivate`
+
+_Clean version of the above commands:_
+```
+python --version
+pip --version
+pip install virtualenv
+cd my_project_folder
+virtualenv my_project
+source my_project/bin/activate
+pip install requests
+```
+
+**Workflow Notes Continued:** When using git in this directory, I do not commit the contents of my virtualenv directory. Instead, I'll use a terminal command to "freeze" the contents of my pip list into a file called `requirements.txt` and check that into version control instead. Another user can then create their own virtualenv by installing directly from that requirements file._
+
+```
+pip freeze > requirements.txt
+pip install -r requirements.txt
+```
+
+### Getting Started in R
+
+1. Start/Restart R
+2. Use an existing python virtualenv called `reticulate`, set `required = TRUE`
+3. Check the output of `py_config()` to verify that reticulate is set correctly
+
+```{r}
+library(reticulate)
+use_virtualenv("reticulate", required = TRUE)
+py_config()
+```
+
+
+### Environment Module Check:
+
+Compare the output of pip list to make sure you have the expected modules available (_shown in R and python_):
+
+```{r}
+os <- import("os")
+os$system("pip list")
+```
+
+
+```{python}
+import os
+os.system("pip list")
+```
+
+
