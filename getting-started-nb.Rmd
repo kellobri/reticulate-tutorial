@@ -1,6 +1,8 @@
 ---
 title: "Reticulate Virtual Environment Startup"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 ### Getting Started with virtualenv
@@ -56,12 +58,14 @@ py_config()
 Compare the output of pip list to make sure you have the expected modules available (_shown in R and python_):
 
 ```{r}
+# R Code Chunk (uses reticulate)
 os <- import("os")
 os$system("pip list")
 ```
 
 
 ```{python}
+# Python Code Chunk
 import os
 os.system("pip list")
 ```
