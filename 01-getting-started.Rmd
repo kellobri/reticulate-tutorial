@@ -1,15 +1,27 @@
 ---
-title: "Reticulate Virtual Environment Startup"
+title: "Reticulate/Python Virtual Environment Startup"
 output:
   html_document:
     df_print: paged
 ---
 
-### Getting Started with virtualenv
+## Getting Started with _virtualenv_
 
-_virtualenv_ is a tool to create isolated Python environments. _virtualenv_ creates a folder which contains all the necessary executables to use the packages that a Python project would need. [Documentation Here](https://docs.python-guide.org/dev/virtualenvs/).
+The first thing to do, when getting started with the `reticulate` package in R, is to decide how you want to manage your python environment. 
 
-I like creating python virtual environments to work do work in with reticulate. There are ways to create virtual environments directly from the reticulate package, but I prefer to create them in the terminal such that the directory and activation script is easily co-located with the R project directory I'm working in. This is purely a personal workflow preference. 
+In terms of this R project:
+
+- Which version of ython do you want to use?
+- Where is this installation of python located?
+- What python libraries do you want to make available?
+
+Even if your answer to these questions is: default, default, and I'm not sure yet, I still recommend learning about and using Python virtual environments. There are several ways to create a Python virtual environment. This document describes the process of setting up _virtualenv_ and how to link that environment to `reticulate` in R. 
+
+>_virtualenv_ is a tool to create isolated Python environments. _virtualenv_ creates a folder which contains all the necessary executables to use the packages that a Python project would need. 
+
+[Link: Python Guide for Virtual Environments](https://docs.python-guide.org/dev/virtualenvs/).
+
+I like creating python virtual environments to do work with `reticulate`. There are ways to create virtual environments directly from the reticulate package, but I prefer to create them in the terminal such that the directory and activation script is easily (by default) co-located with the R project directory I'm working in. This is purely a personal workflow preference. 
 
 **Create a virtualenv in the Terminal**
 
@@ -40,7 +52,7 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
-### Getting Started in R
+## Getting Started in R
 
 1. Start/Restart R
 2. Use an existing python virtualenv called `reticulate`, set `required = TRUE`
