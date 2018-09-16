@@ -15,6 +15,7 @@ From the [Reticulate documentation website](https://rstudio.github.io/reticulate
 
 - Reticulate/Python Virtual Environment Startup `01-getting-started.Rmd`
 - Introduction to Incorporating Python Code `02-incorporating-code.Rmd`
+- Reticulated Shiny `03-reticulated-shiny.Rmd`
 
 ### 02 - Walk Exercises: Write Custom Python Code in R Projects
 
